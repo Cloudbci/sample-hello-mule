@@ -1,1 +1,1 @@
-# sample-hello-mule
+# hello-mule

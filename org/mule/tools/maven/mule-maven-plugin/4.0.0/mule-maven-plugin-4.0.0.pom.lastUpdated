@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Mar 11 10:54:45 IST 2024
+@default-mulesoft-releases-https\://repository.mulesoft.org/releases/.lastUpdated=1710134685585
+https\://repo.maven.apache.org/maven2/.error=
+https\://repo.maven.apache.org/maven2/.lastUpdated=1709798179777
+https\://repository.mulesoft.org/releases/.error=Could not transfer artifact org.mule.tools.maven\:mule-maven-plugin\:pom\:4.0.0 from/to mulesoft-releases (https\://repository.mulesoft.org/releases/)\: transfer failed for https\://repository.mulesoft.org/releases/org/mule/tools/maven/mule-maven-plugin/4.0.0/mule-maven-plugin-4.0.0.pom
