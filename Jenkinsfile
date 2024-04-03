@@ -1,50 +1,33 @@
 pipeline {
-
     agent any
-
-    options {
-        buildDiscarder logRotator( 
-                    daysToKeepStr: '16', 
-                    numToKeepStr: '10'
-            )
-    }
-
-    stages {     
-
-        // stage('Checkout') {
+    
+    stages {      
+        stage('Build hello-mule application') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+             steps {
+                 echo "Application in Testing Phase…"
+                 sh 'mvn test'
+             }
+         }
+        
+        // stage('Deploy') {
         //     steps {
-        //         // Checkout code from GitHub
-        //         git branch: 'main', url: 'https://github.com/ash-code-lab/core-webapp.git'
+        //         // Deploy the application
+        //         sh 'mvn deploy'
         //     }
         // }
-
-        stage(' Unit Testing') {
-            steps {
-                sh """
-                echo "Running Unit Tests"
-                """
-            }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline succeeded! Your application is built successfully.'
         }
-
-        stage('Code Analysis') {
-            steps {
-                sh """
-                echo "Running Code Analysis"
-                """
-            }
+        failure {
+            echo 'Pipeline failed! Check the logs for details.'
         }
-
-        stage('Build Deploy Code') {
-            steps {
-                sh """
-                echo "Building Artifact"
-                """
-
-                sh """
-                echo "Deploying Code"
-                """
-            }
-        }
-
-    }   
+    }
 }
