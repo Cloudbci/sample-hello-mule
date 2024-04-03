@@ -2,10 +2,20 @@ pipeline {
     agent any
     
     stages {      
-        stage('Build hello-mule application') {
-            steps {
-                sh 'mvn clean package'
+        stage('Build') {
+            when {
+                // Execute this stage only if the branch name matches one of the specified branches
+                expression { 
+                    env.BRANCH_NAME == 'development' || 
+                    env.BRANCH_NAME == 'uat' || 
+                    env.BRANCH_NAME == 'release' || 
+                    env.BRANCH_NAME == 'main'
+                }
             }
+            steps {
+                // Use Maven to build the project
+                sh 'mvn clean package'
+                }
         }
         stage('Test') {
              steps {
