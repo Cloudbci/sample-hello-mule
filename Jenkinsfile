@@ -17,7 +17,7 @@ pipeline {
             //     }
             steps {
                 // Use Maven to build the project
-                sh 'mvn clean package'
+                sh 'mvn clean -U -B package --file pom.xml'
                 }
         }
         stage('Test') {
