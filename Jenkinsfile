@@ -1,10 +1,5 @@
 pipeline {
-    agent any
-    tools {
-        git 'git'
-        maven 'maven'
-        }
-    
+    agent any    
     stages {      
         stage('Build') {
             // when {
