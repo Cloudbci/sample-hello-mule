@@ -18,12 +18,6 @@ pipeline {
                 sh 'mvn clean -U -B package --file pom.xml'
                 }
         }
-        stage('Test') {
-             steps {
-                 echo "Application in Testing Phase…"
-                 sh 'mvn test'
-             }
-         }
         
         stage('Publish to JFrog') {
             steps {
