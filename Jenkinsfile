@@ -1,5 +1,8 @@
 pipeline {
     agent { dockerfile true }   
+    tools {
+    jfrog 'jfrog-cli'
+    }
     stages {      
         stage('Build') {
             // when {
@@ -22,12 +25,12 @@ pipeline {
              }
          }
         
-        // stage('Deploy') {
-        //     steps {
-        //         // Deploy the application
-        //         sh 'mvn deploy'
-        //     }
-        // }
+        stage('Publish to JFrog') {
+            steps {
+                // Deploy the application
+                sh 'jf --version'
+            }
+        }
     }
     
     post {
