@@ -28,8 +28,8 @@ pipeline {
         stage('Publish to JFrog') {
         steps {
             script {
-                  jf 'rt u target/*.jar hellomule-libs-release-local'
-                  jf 'rt build-publish'
+                  jfrog 'rt u target/*.jar hellomule-libs-release-local'
+                  jfrog 'rt build-publish'
                 }
             }
         }
