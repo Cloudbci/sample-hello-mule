@@ -7,9 +7,9 @@ RUN apt update && \
 # Set the working directory
 WORKDIR /home/jenkins
  
-RUN apt-get update && \
-    apt-get install -y && \
-    curl -fL https://getcli.jfrog.io | sh && java --version && mvn --version
+# RUN apt-get update && \
+#     apt-get install -y && \
+#     curl -fL https://getcli.jfrog.io | sh && java --version && mvn --version
  
 # Entry point for Jenkins to run commands
 CMD ["/bin/bash"]
