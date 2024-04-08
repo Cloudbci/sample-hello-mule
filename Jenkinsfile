@@ -26,9 +26,11 @@ pipeline {
          }
         
         stage('Publish to JFrog') {
-            steps {
-                // Deploy the application
-                sh 'jf --version'
+        steps {
+            script {
+                  jf 'rt u target/*.jar hellomule-libs-release-local'
+                  jf 'rt build-publish'
+                }
             }
         }
     }
