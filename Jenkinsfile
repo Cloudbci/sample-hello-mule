@@ -26,6 +26,9 @@ pipeline {
                     script {                                                
                            def jfrogUrl = 'https://jozsefa.jfrog.io'                                                                                               
                            sh "jfrog rt mvn-publish --url=${jfrogUrl} --user=${JFROG-USERNAME} --password=${JFROG-PASSWORD} target/*.jar hellomule-libs-release-local"                     
+                            }
+                    }
+            }
         }
     }
     
