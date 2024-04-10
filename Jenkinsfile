@@ -21,11 +21,11 @@ pipeline {
         
         stage('Publish to JFrog') {
             steps {                 
-               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-PASSWORD')]) 
+               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-ACCESSTOKEN')]) 
                {                     
                     script {                                                
                            def jfrogUrl = 'https://jozsefa.jfrog.io'                                                                                               
-                           sh "'jf rt upload --url=${jfrogUrl} --user=${JFROG-USERNAME} --password=${JFROG-PASSWORD} ./target/*.jar hellomule/"                     
+                           sh "'jf rt upload --url=${jfrogUrl} --user=${JFROG-USERNAME} --password=${JFROG-ACCESSTOKEN} ./target/*.jar hellomule/"                     
                             }
                     }
             }
