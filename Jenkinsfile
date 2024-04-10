@@ -24,8 +24,8 @@ pipeline {
                withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-ACCESSTOKEN')]) 
                {                     
                     script {                                                
-                           def jfrogUrl = 'https://jozsefa.jfrog.io'                                                                                               
-                           sh "'jf rt upload --url=${jfrogUrl} --user=${JFROG-USERNAME} --password=${JFROG-ACCESSTOKEN} ./target/*.jar hellomule/"                     
+                           def jfrogUrl = 'https://jozsefa.jfrog.io'                                                                                                                
+                           sh 'jf rt upload --url ${jfrogUrl} --access-token ${JFROG-ACCESSTOKEN} ./target/*.jar hellomule/'
                             }
                     }
             }
