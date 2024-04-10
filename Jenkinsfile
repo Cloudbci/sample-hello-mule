@@ -3,6 +3,9 @@ pipeline {
     tools {
     jfrog 'jfrog-cli'
     }
+    environment {
+        JFROG_URL = "https://jozsefa.jfrog.io"
+    }
     stages {      
         stage('Build') {
             // when {
@@ -21,11 +24,10 @@ pipeline {
         
         stage('Publish to JFrog') {
             steps {                 
-               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-ACCESSTOKEN')]) 
+               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-ACCESS-TOKEN')]) 
                {                     
-                    script {                                                
-                           def jfrogUrl = 'https://jozsefa.jfrog.io'                                                                                                                
-                           sh 'jf rt upload --url ${jfrogUrl} --access-token ${JFROG-ACCESSTOKEN} ./target/*.jar hellomule/'
+                    script {                                                                                                                                                               
+                           sh 'jf rt upload --url $JFROG_URL --access-token $JFROG-ACCESS-TOKEN ./*.jar hellomule/'
                             }
                     }
             }
