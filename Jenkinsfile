@@ -20,12 +20,12 @@ pipeline {
         }
         
         stage('Publish to JFrog') {
-            steps {
-                script {
-                  jfrog 'rt u target/*.jar hellomule-libs-release-local/'
-                  jfrog 'rt build-publish'
-                }
-            }
+            steps {                 
+               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-PASSWORD')]) 
+               {                     
+                    script {                                                
+                           def jfrogUrl = 'https://jozsefa.jfrog.io'                                                                                               
+                           sh "jfrog rt mvn-publish --url=${jfrogUrl} --user=${JFROG-USERNAME} --password=${JFROG-PASSWORD} target/*.jar hellomule-libs-release-local"                     
         }
     }
     
