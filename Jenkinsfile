@@ -34,7 +34,7 @@ pipeline {
                {                     
                     script { 
                         
-                           sh 'jf rt upload --url $JFROG_URL --access-token $JFROG-ACCESS-TOKEN ./target/*.jar hellomule/'
+                           sh 'jf rt upload --url ${JFROG_URL} --access-token ${JFROG-ACCESS-TOKEN} ./target/*.jar hellomule/'
                             }
                     }
             }
