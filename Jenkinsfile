@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         JFROG_URL = "https://jozsefa.jfrog.io"
+        JFROG_CLI_HOME = "/home/jenkins/.jfrog"
     }
     stages {      
         stage('Build') {
