@@ -1,6 +1,9 @@
 # Use Maven 3.9.6 with Eclipse Temurin JDK 17 on Ubuntu as the base image
 FROM maven:3.9.6-eclipse-temurin-17
 
+# Create a jenkins user
+RUN groupadd -g 1000 jenkins && useradd -u 1000 -g jenkins -ms /bin/bash jenkins
+
 # Switch to the jenkins user
 USER jenkins
 
