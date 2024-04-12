@@ -1,6 +1,9 @@
 # Use Maven 3.9.6 with Eclipse Temurin JDK 17 on Ubuntu as the base image
 FROM maven:3.9.6-eclipse-temurin-17
 
+# Switch to the jenkins user
+USER jenkins
+
 # Install wget and gnupg
 RUN apt-get update && \
     apt-get install -y wget gnupg && \
