@@ -22,12 +22,18 @@ pipeline {
                 sh 'mvn clean -U -B package --file pom.xml'
                 }
         }
+         stage('Check JFrog CLI version') {
+             steps{
+                 sh 'jf --version'
+             }
+         }
         
         stage('Publish to JFrog') {
             steps {                 
                withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-ACCESS-TOKEN')]) 
                {                     
-                    script {                                                                                                                                                               
+                    script { 
+                        
                            sh 'jf rt upload --url $JFROG_URL --access-token $JFROG-ACCESS-TOKEN ./*.jar hellomule/'
                             }
                     }
