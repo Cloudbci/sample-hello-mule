@@ -16,6 +16,9 @@ RUN echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" >
 # Install JFrog CLI
 RUN apt-get install -y jfrog-cli-v2-jf
 
+#Check jf version
+RUN jf --version && mvn --version && java --version
+
 # Set the working directory
 WORKDIR /home/jenkins
 
