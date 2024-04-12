@@ -1,5 +1,6 @@
 pipeline {
-    agent { dockerfile true }   
+    //agent { dockerfile true }   
+    agent any
     tools {
     jfrog 'jfrog-cli'
     }
