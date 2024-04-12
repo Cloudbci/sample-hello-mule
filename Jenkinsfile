@@ -31,7 +31,7 @@ pipeline {
         
         stage('Publish to JFrog') {
             steps {                 
-               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-PASSWORD')]) 
+               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG_USERNAME', passwordVariable: 'JFROG_PASSWORD')]) 
                {                     
                     script { 
                         
