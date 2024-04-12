@@ -34,7 +34,7 @@ pipeline {
                {                     
                     script { 
                         
-                           sh 'jf rt upload --url ${JFROG_URL} --username ${JFROG-USERNAME} --password ${JFROG-ACCESS-TOKEN} ./*.jar hellomule/'
+                           sh 'jf rt upload --url ${JFROG_URL} --username=${JFROG-USERNAME} --password=${JFROG-ACCESS-TOKEN} ./*.jar hellomule/'
                             }
                     }
             }
