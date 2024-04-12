@@ -19,8 +19,5 @@ RUN apt-get install -y jfrog-cli-v2-jf
 # Set the working directory
 WORKDIR /home/jenkins
 
-# Set the JFrog CLI home directory
-ENV JFROG_CLI_HOME=/home/jenkins/.jfrog
-
 # Set up default command to run when container starts
 CMD ["bash"]
