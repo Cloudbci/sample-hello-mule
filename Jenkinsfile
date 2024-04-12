@@ -6,6 +6,7 @@ pipeline {
     environment {
         JFROG_URL = "https://jozsefa.jfrog.io"
         JFROG_CLI_HOME = "/home/jenkins/.jfrog"
+        JFROG_ACCESS_TOKEN = credentials("jfrog-access-token")
     }
     stages {      
         stage('Build') {
@@ -30,11 +31,11 @@ pipeline {
         
         stage('Publish to JFrog') {
             steps {                 
-               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-ACCESS-TOKEN')]) 
+               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG-USERNAME', passwordVariable: 'JFROG-PASSWORD')]) 
                {                     
                     script { 
                         
-                           sh 'jf rt upload --url ${JFROG_URL} --username=${JFROG-USERNAME} --password=${JFROG-ACCESS-TOKEN} ./*.jar hellomule/'
+                           sh 'jf rt upload --url ${JFROG_URL} --access-token ${JFROG_ACCESS_TOKEN} ./target/*.jar hellomule/'
                             }
                     }
             }
