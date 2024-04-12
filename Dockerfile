@@ -3,7 +3,7 @@ FROM maven:3.9.6-eclipse-temurin-17
 
 # Install wget and gnupg
 RUN apt-get update && \
-    apt-get install -y wget && \
+    apt-get install -y wget gnupg && \
     rm -rf /var/lib/apt/lists/*
 
 # Add JFrog GPG key
