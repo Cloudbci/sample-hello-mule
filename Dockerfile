@@ -2,6 +2,7 @@
 FROM maven:3.9.6-eclipse-temurin-17
 
 # Install wget and gnupg
+USER root
 RUN apt-get update && \
     apt-get install -y wget gnupg && \
     rm -rf /var/lib/apt/lists/*
@@ -14,7 +15,8 @@ RUN echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" >
     apt-get update
 
 # Install JFrog CLI
-RUN apt-get install -y jfrog-cli-v2-jf
+RUN apt-get install -y jfrog-cli-v2-jf && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create a jenkins user
 RUN groupadd -g 1000 jenkins && useradd -u 1000 -g jenkins -ms /bin/bash jenkins
