@@ -28,13 +28,13 @@ USER jenkins
 RUN id
 
 # Create .jfrog directory
-RUN mkdir -p /home/jenkins/.jfrog
+#RUN mkdir -p /home/jenkins/.jfrog
 
 # Print directory permissions
-RUN ls -ld /home/jenkins/.jfrog
+#RUN ls -ld /home/jenkins/.jfrog
 
 # Change ownership of .jfrog directory to jenkins user
-RUN chown -R jenkins:jenkins /home/jenkins/.jfrog
+#RUN chown -R jenkins:jenkins /home/jenkins/.jfrog
 
 # Set the working directory
 WORKDIR /home/jenkins
