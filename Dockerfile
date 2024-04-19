@@ -24,6 +24,9 @@ RUN groupadd -g 1000 jenkins && useradd -u 1000 -g jenkins -ms /bin/bash jenkins
 # Set user to jenkins
 USER jenkins
 
+# Print current user info
+RUN id
+
 # Create .jfrog directory
 RUN mkdir -p /home/jenkins/.jfrog
 
