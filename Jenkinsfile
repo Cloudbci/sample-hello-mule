@@ -1,6 +1,9 @@
 pipeline {
     agent { dockerfile true }   
     //agent any
+    tools {
+    jfrog 'jfrog-cli'
+    }
     environment {
         JFROG_URL = "https://jozsefa.jfrog.io"
         JFROG_CLI_HOME = "/home/jenkins/.jfrog"
