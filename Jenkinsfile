@@ -27,7 +27,6 @@ pipeline {
          stage('Check JFrog CLI version') {
              steps{
                  sh 'jf --version'
-                 sh 'ls -l /home/jenkins'
              }
          }
         
