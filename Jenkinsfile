@@ -27,19 +27,18 @@ pipeline {
          stage('Check JFrog CLI version') {
              steps{
                  sh 'jf --version'
-                 sh 'whoami'
              }
          }
         
         stage('Publish to JFrog') {
             steps {                 
-              // withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG_USERNAME', passwordVariable: 'JFROG_PASSWORD')]) 
-               //{                     
+               withCredentials([usernamePassword(credentialsId: 'jfrog', usernameVariable: 'JFROG_USERNAME', passwordVariable: 'JFROG_PASSWORD')]) 
+               {                     
                     script { 
                         
                            sh 'jf rt upload --url ${JFROG_URL} --access-token ${JFROG_ACCESS_TOKEN} ./target/*.jar hellomule/'
                             }
-                    //}
+                    }
             }
         }
     }
