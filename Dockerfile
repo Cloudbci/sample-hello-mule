@@ -37,7 +37,7 @@ RUN id
 #RUN chown -R jenkins:jenkins /home/jenkins/.jfrog
 
 # Set the working directory
-#WORKDIR /home/jenkins
+WORKDIR /home/jenkins
 
 # Set up default command to run when container starts
 CMD ["bash"]
