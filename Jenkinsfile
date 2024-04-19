@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
         JFROG_URL = "https://jozsefa.jfrog.io"
-        JFROG_CLI_HOME = "/home/jenkins/.jfrog"
+        JFROG_CLI_HOME = "/home/jenkins/jfrog"
         JFROG_ACCESS_TOKEN = credentials("jfrog-access-token")
     }
     stages {      
