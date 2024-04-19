@@ -20,7 +20,7 @@ RUN apt-get install -y jfrog-cli-v2-jf && \
 
 # Create a jenkins user
 RUN groupadd -g 1000 jenkins && useradd -u 1000 -g jenkins -ms /bin/bash jenkins && \
-    mkdir /home/jenkins/.jfrog
+    mkdir /home/jenkins/.jfrog && chown -R jenkins:jenkins /home/jenkins/.jfrog
 
 # Switch to the jenkins user
 USER jenkins
