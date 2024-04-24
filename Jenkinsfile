@@ -4,11 +4,11 @@ pipeline {
     tools {
     jfrog 'jfrog-cli'
     }
-    environment {
-        JFROG_URL = "https://jozsefa.jfrog.io"
-        JFROG_CLI_HOME = "/home/jenkins/.jfrog"
-        //JFROG_ACCESS_TOKEN = credentials("jfrog-access-token")
-    }
+    // environment {
+    //     JFROG_URL = "https://jozsefa.jfrog.io"
+    //     JFROG_CLI_HOME = "/home/jenkins/.jfrog"
+    //     //JFROG_ACCESS_TOKEN = credentials("jfrog-access-token")
+    // }
     stages {      
         stage('Build') {
             // when {
@@ -30,17 +30,17 @@ pipeline {
              }
          }
         
-        stage('Publish to JFrog') {
-            steps {                 
-               withCredentials([usernamePassword(credentialsId: 'JFROG_ACCESS_TOKEN', usernameVariable: 'JF_TOKEN', passwordVariable: 'JF_ACCESSTOKEN')]) 
-               {                     
-                    script { 
+        // stage('Publish to JFrog') {
+        //     steps {                 
+        //        withCredentials([usernamePassword(credentialsId: 'JFROG_ACCESS_TOKEN', usernameVariable: 'JF_TOKEN', passwordVariable: 'JF_ACCESSTOKEN')]) 
+        //        {                     
+        //             script { 
                         
-                        sh 'jf rt upload --url ${JFROG_URL} --access-token ${JF_ACCESSTOKEN} ./target/*.jar hellomule/'
-                        }
-                }
-            }
-        }
+        //                 sh 'jf rt upload --url ${JFROG_URL} --access-token ${JF_ACCESSTOKEN} ./target/*.jar hellomule/'
+        //                 }
+        //         }
+        //     }
+        // }
     }
     
     post {
