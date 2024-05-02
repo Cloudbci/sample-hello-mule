@@ -23,7 +23,7 @@ RUN groupadd -g 1000 jenkins && useradd -u 1000 -g jenkins -ms /bin/bash jenkins
 
 # Set user to jenkins
 USER jenkins
-RUN sudo chown jenkins:jenkins /home/jenkins && sudo chmod 755 /home/jenkins
+RUN chown jenkins:jenkins /home/jenkins && chmod 755 /home/jenkins
 
 # Set the working directory
 WORKDIR /home/jenkins
