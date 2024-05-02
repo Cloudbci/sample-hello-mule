@@ -22,7 +22,7 @@ RUN apt-get install -y jfrog-cli-v2-jf && \
 RUN groupadd -g 1000 jenkins && useradd -u 1000 -g jenkins -ms /bin/bash jenkins 
 
 # Set user to jenkins
-USER jenkins
+USER docker
 
 # Set the working directory
 WORKDIR /home/jenkins
